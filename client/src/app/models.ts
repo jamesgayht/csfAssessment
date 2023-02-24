@@ -1,8 +1,8 @@
 // Do not change these interfaces
 export interface Restaurant {
 	restaurantId: string
-	namd: string
-	cusisine: string
+	name: string
+	cuisine: string
 	address: string
 	coordinates: number[]
 }
@@ -12,4 +12,12 @@ export interface Comment {
 	rating: number
 	restaurantId: string
 	text: string
+}
+
+export class Comment{
+	constructor (
+	name: string,
+	rating: number,
+	restaurantId: string,
+	text: string) {}
 }

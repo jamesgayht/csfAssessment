@@ -1,1 +1,48 @@
-<p>restaurant-details works!</p>
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+    <table *ngIf="restaurant">
+        <tr>
+            <td>Restaurant ID:</td>
+            <td>{{ restaurant.restaurantId }}</td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td>{{ restaurant.name }}</td>
+        </tr>
+        <tr>
+            <td>Cuisines:</td>
+            <td>{{ restaurant.cuisine }}</td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td>{{ restaurant.address }}</td>
+        </tr>
+        <tr>
+            <td>Coords:</td>
+            <td>{{ restaurant.coordinates }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Comment:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>User Name:</td>
+            <td><input type="text" formControlName="name"></td>
+        </tr>
+        <tr>
+            <td>Rating:</td>
+            <td><input type="number" formControlName="rating" step="1" min="1" max="5"></td>
+        </tr>
+        <tr>
+            <td>Your thoughts:</td>
+            <td><input type="text" formControlName="text" placeholder="Type here"></td>
+        </tr>
+        <tr *ngIf="restaurant">
+            <td><button type="button" [routerLink]="['/', restaurant.cuisine, 'restaurants']">Back</button></td>
+            <td><button type="submit" [disabled]="form.invalid">Submit</button></td>
+        </tr>
+    </table>
+</form>
